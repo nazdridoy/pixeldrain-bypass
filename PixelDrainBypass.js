@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Pixeldrain Bypass
 // @namespace    https://github.com/nazdridoy
-// @version      2.0.0
+// @version      2.0.1
 // @description  Automatically redirects PixelDrain URLs to a faster mirror
 // @author       nazdridoy
 // @license      MIT
@@ -46,7 +46,7 @@ SOFTWARE.
     
     if (fileIdMatch && fileIdMatch[1]) {
         const fileId = fileIdMatch[1];
-        const newUrl = `https://pd.cybar.xyz/${fileId}`;
+        const newUrl = `https://pd.1drv.eu.org/${fileId}`;
         
         // Redirect to the new URL
         window.location.replace(newUrl);
