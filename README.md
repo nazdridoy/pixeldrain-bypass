@@ -1,48 +1,33 @@
 # Pixeldrain Bypass
 
-A userscript that automatically redirects PixelDrain URLs to a faster mirror. It intercepts requests to pixeldrain.com and redirects them to an alternative server for faster downloads.
+Userscript that automatically opens PixelDrain file downloads via a faster mirror (`cdn.pixeldrain.eu.cc`) in a new tab.
 
-[![Install Pixeldrain Bypass](https://img.shields.io/badge/Install-Pixeldrain%20Bypass-brightgreen?style=for-the-badge)](https://greasyfork.org/en/scripts/532142-pixeldrain-bypass)
-
-
-## Features
-
-- ⚡ Automatic redirection to a faster mirror
-- 🚀 Improves download speeds from PixelDrain
-- 🛡️ Simple and lightweight implementation
-- 🔄 Works immediately upon page load
+[![Install](https://img.shields.io/badge/Install-Pixeldrain%20Bypass-brightgreen?style=for-the-badge)](https://greasyfork.org/en/scripts/532142-pixeldrain-bypass)
 
 ## How It Works
 
-The script detects when you visit a pixeldrain.com file URL (format: `https://pixeldrain.com/u/FILE_ID`), extracts the file ID, and automatically redirects you to `https://pd.cybar.xyz/FILE_ID` which serves the same content but potentially with faster speeds.
+When you open a `pixeldrain.com/u/*` link, the script extracts the file ID and immediately opens `cdn.pixeldrain.eu.cc/<ID>?download` in a new tab.
 
 ## Installation
 
-1. Install a userscript manager:
-   - [Tampermonkey](https://www.tampermonkey.net/) (Recommended)
-   - [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/)
-   - [Violentmonkey](https://violentmonkey.github.io/)
+1. Install a userscript manager — [Tampermonkey](https://www.tampermonkey.net/), [Violentmonkey](https://violentmonkey.github.io/), or [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/)
+2. [Install from Greasy Fork](https://greasyfork.org/en/scripts/532142-pixeldrain-bypass) or paste [`PixelDrainBypass.js`](https://github.com/nazdridoy/pixeldrain-bypass/blob/main/PixelDrainBypass.js) into a new script
 
-2. Install the script:
-   - [Install from Greasy Fork](https://greasyfork.org/en/scripts/532142-pixeldrain-bypass) (Recommended)
-   - Create a new script in your userscript manager and copy the contents of [`PixelDrainBypass.js`](https://github.com/nazdridoy/pixeldrain-bypass/blob/main/PixelDrainBypass.js)
+> Grant the `GM_openInTab` permission when prompted.
 
 ## Usage
 
-Simply visit any PixelDrain file URL (https://pixeldrain.com/u/*), and the script will automatically redirect you to the faster mirror.
-
-No configuration or user interaction is required - it works immediately after installation.
+Open any `https://pixeldrain.com/u/*` link — the download starts automatically in a new tab.
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details
+MIT — see [LICENSE](LICENSE)
 
 ## Credits
 
-Created by [nazdridoy](https://github.com/nazdridoy)
+[nazdridoy](https://github.com/nazdridoy)
 
 ## Support
 
-If you encounter any issues or have suggestions:
 - [Open an issue](https://github.com/nazdridoy/pixeldrain-bypass/issues)
 - [Submit a pull request](https://github.com/nazdridoy/pixeldrain-bypass/pulls)

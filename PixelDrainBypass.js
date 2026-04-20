@@ -1,19 +1,19 @@
 // ==UserScript==
 // @name         Pixeldrain Bypass
 // @namespace    https://github.com/nazdridoy
-// @version      2.0.1
-// @description  Automatically redirects PixelDrain URLs to a faster mirror
+// @version      2.1.0
+// @description  Bypass PixelDrain hotlink detection and download limits via cdn.pixeldrain.eu.cc
 // @author       nazdridoy
 // @license      MIT
 // @match        https://pixeldrain.com/u/*
 // @icon         https://pixeldrain.com/favicon.ico
-// @grant        none
+// @grant        GM_openInTab
 // @run-at       document-start
 // @homepageURL  https://github.com/nazdridoy/pixeldrain-bypass
 // @supportURL   https://github.com/nazdridoy/pixeldrain-bypass/issues
 // ==/UserScript==
 
-/* 
+/*
 MIT License
 
 Copyright (c) 2023 nazDridoy
@@ -37,18 +37,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-(function() {
+(function () {
     'use strict';
-    
-    // Extract the file ID from the current URL
-    const currentUrl = window.location.href;
-    const fileIdMatch = currentUrl.match(/pixeldrain\.com\/u\/([a-zA-Z0-9]+)/);
-    
-    if (fileIdMatch && fileIdMatch[1]) {
-        const fileId = fileIdMatch[1];
-        const newUrl = `https://pd.1drv.eu.org/${fileId}`;
-        
-        // Redirect to the new URL
-        window.location.replace(newUrl);
-    }
+
+    const match = window.location.href.match(/pixeldrain\.com\/u\/([a-zA-Z0-9]+)/);
+    if (!match) return;
+
+    const url = `https://cdn.pixeldrain.eu.cc/${match[1]}?download`;
+
+    GM_openInTab(url, { active: true, insert: true });
 })();
